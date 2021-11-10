@@ -64,7 +64,7 @@ module.exports = {
         Provinsi_Id,
       });
 
-      res.redirect("/");
+      res.redirect("/kab");
     } catch (err) {
       console.log(err);
     }
@@ -139,7 +139,7 @@ module.exports = {
                 },
               }
             );
-            res.redirect("/");
+            res.redirect("/kab");
           } catch (err) {
             console.log(err.message);
           }
@@ -149,7 +149,7 @@ module.exports = {
           { nama, diresmikan, Provinsi_Id },
           { where: { id: idParams } }
         );
-        res.redirect("/");
+        res.redirect("/kab");
       }
     } catch (err) {
       console.log(err);
@@ -160,7 +160,7 @@ module.exports = {
     try {
       const { id } = req.params;
       await Kabupaten.destroy({ where: { id } });
-      res.redirect("/");
+      res.redirect("/kab");
     } catch (err) {
       console.log(err);
     }
