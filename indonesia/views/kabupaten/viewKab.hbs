@@ -45,7 +45,7 @@
             </div>
             <div class="col-2">
               <button type="submit" class="ud-main-btn">
-                Submit
+                Search
               </button>
             </div>
           </div>
@@ -62,7 +62,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="ud-single-blog">
               <div class="ud-blog-image">
-                <a href="/kabupaten/{{this.id}}">
+                <a href="/detailkab/{{this.id}}">
                   <img src="../../public/upload/{{this.photo}}" alt="blog" />
                 </a>
               </div>
@@ -70,12 +70,12 @@
                 <span class="ud-blog-date">{{this.nama}}</span>
                 <span class="ud-blog-rating">{{this.diresmikan}}</span>
                 <h3 class="ud-blog-title">
-                  <a href="/kabupaten/{{this.id}}">
+                  <a href="/detailkab/{{this.id}}">
                     Details
                   </a>
                 </h3>
                 <hr class="dropdown-divider" />
-                <form action="/deleteprov/{{this.id}}?_method=DELETE" method="POST">
+                <form action="/deletekab/{{this.id}}?_method=DELETE" method="POST">
                   <a href="/editkab/{{this.id}}" class="btn btn-warning">
                     Edit
                   </a>

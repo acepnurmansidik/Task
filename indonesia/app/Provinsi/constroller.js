@@ -3,28 +3,29 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = {
-  // viewIndex: async (req, res) => {
-  //   try {
-  //     let newProvs = [];
-  //     const provs = await Provinsi.findAll();
-  //     provs.map((prov) => {
-  //       newProvs.push({
-  //         id: prov.id,
-  //         nama: prov.nama,
-  //         diresmikan: prov.diresmikan,
-  //         photo: prov.photo,
-  //         pulau: prov.pulau,
-  //       });
-  //     });
+  viewDetail: async (req, res) => {
+    try {
+      const { id } = req.params;
+      let newProv = [];
+      const provs = await Provinsi.findAll({ where: { id } });
+      provs.map((prov) => {
+        newProv.push({
+          id: prov.id,
+          nama: prov.nama,
+          diresmikan: prov.diresmikan,
+          photo: prov.photo,
+          pulau: prov.pulau,
+        });
+      });
 
-  //     res.render("index", {
-  //       title: "Provinsi",
-  //       newProvs,
-  //     });
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // },
+      res.render("provinsi/detail", {
+        title: "Provinsi",
+        newProv,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   // ADD PROVINSI ========================
   viewAddProv: async (req, res) => {
     try {

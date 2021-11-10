@@ -4,6 +4,36 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = {
+  viewDetail: async (req, res) => {
+    try {
+      const { id } = req.params;
+      let newKab = [];
+      const kabs = await Kabupaten.findAll({ where: { id } });
+      kabs.map((kba) => {
+        newKab.push({
+          id: kba.id,
+          nama: kba.nama,
+          diresmikan: kba.diresmikan,
+          photo: kba.photo,
+          Provinsi_Id: kba.Provinsi_Id,
+        });
+      });
+      console.log(newKab[0].Provinsi_Id);
+      const provs = await Provinsi.findOne({
+        where: { id: newKab[0].Provinsi_Id },
+      });
+      const Prov = provs.nama;
+      console.log(Prov);
+
+      res.render("kabupaten/detail", {
+        title: "Kabupaten",
+        newKab,
+        Prov,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   // ADD ===============================
   viewAddKab: async (req, res) => {
     try {
@@ -121,6 +151,16 @@ module.exports = {
         );
         res.redirect("/");
       }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  // DELETE =======================================
+  actionDeleteKab: async (req, res) => {
+    try {
+      const { id } = req.params;
+      await Kabupaten.destroy({ where: { id } });
+      res.redirect("/");
     } catch (err) {
       console.log(err);
     }

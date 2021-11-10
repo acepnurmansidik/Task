@@ -8,9 +8,10 @@ const {
   viewEditProv,
   actionEditProv,
   acttionDeleteProv,
+  viewDetail,
 } = require("./constroller");
 
-// router.get("/", viewIndex);
+router.get("/detalProv/:id", viewDetail);
 
 // ADD
 router.get("/addprov", viewAddProv);

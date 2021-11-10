@@ -6,8 +6,12 @@ const {
   actionAddKab,
   viewEditKab,
   actionEditKab,
+  viewDetail,
+  actionDeleteKab,
 } = require("./controller");
 const router = express.Router();
+
+router.get("/detailkab/:id", viewDetail);
 
 router.get("/addkab", viewAddKab);
 router.post(
@@ -22,5 +26,7 @@ router.put(
   multer({ dest: os.tmpdir() }).single("image"),
   actionEditKab
 );
+
+router.delete("/deletekab/:id", actionDeleteKab);
 
 module.exports = router;
