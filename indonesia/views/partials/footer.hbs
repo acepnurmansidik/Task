@@ -1,0 +1,175 @@
+    <!-- ====== Footer Start ====== -->
+    <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
+      <div class="shape shape-1">
+        <img src="../../public/images/footer/shape-1.svg" alt="shape" />
+      </div>
+      <div class="shape shape-2">
+        <img src="../../public/images/footer/shape-2.svg" alt="shape" />
+      </div>
+      <div class="shape shape-3">
+        <img src="../../public/images/footer/shape-3.svg" alt="shape" />
+      </div>
+      <div class="ud-footer-widgets">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="ud-widget">
+                <a href="index.html" class="ud-footer-logo">
+                  <h1>Synema21</h1>
+                </a>
+                <p class="ud-widget-desc">
+                  we make your viewing experience more enjoyable.
+                </p>
+                <ul class="ud-widget-socials">
+                  <li>
+                    <a href="https://web.facebook.com/acepnurmansidik/">
+                      <i class="lni lni-facebook-filled"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/acepnurmansidik_/?hl=id">
+                      <i class="lni lni-instagram-filled"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/acep-nurman-sidik-b8705a131/">
+                      <i class="lni lni-linkedin-original"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">About Us</h5>
+                <ul class="ud-widget-links">
+                  <li>
+                    <a href="javascript:void(0)">Home</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">Features</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">About</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">Testimonial</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">Features</h5>
+                <ul class="ud-widget-links">
+                  <li>
+                    <a href="javascript:void(0)">Privacy policy</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">Terms of service</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">Refund policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">Our Products</h5>
+                <ul class="ud-widget-links">
+                  <li>
+                    <a
+                      href="https://lineicons.com/"
+                      rel="nofollow noopner"
+                      target="_blank"
+                      >Buy Ticket
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ====== Footer End ====== -->
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <script>
+    function readURL (input){
+        if(input.files && input.files[0]){
+            const reader = new FileReader();
+
+            reader.onload = function(e){
+                $('#perview').attr('src', e.target.result)
+                $('#perview').attr('width', "10%")
+                $('#perview').attr('height', "10%")
+            }
+
+            reader.readAsDataURL(input.files[0])
+        }
+    }
+
+    $('#image').change(function(){
+        readURL(this)
+    })
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="../../public/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/js/wow.min.js"></script>
+    <script src="../../public/js/main.js"></script>
+    <script>
+      // ==== for menu scroll
+      const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+      pageLink.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.querySelector(elem.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            offsetTop: 1 - 60,
+          });
+        });
+      });
+
+      // section menu active
+      function onScroll(event) {
+        const sections = document.querySelectorAll(".ud-menu-scroll");
+        const scrollPos =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop;
+
+        for (let i = 0; i < sections.length; i++) {
+          const currLink = sections[i];
+          const val = currLink.getAttribute("href");
+          const refElement = document.querySelector(val);
+          const scrollTopMinus = scrollPos + 73;
+          if (
+            refElement.offsetTop <= scrollTopMinus &&
+            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+          ) {
+            document
+              .querySelector(".ud-menu-scroll")
+              .classList.remove("active");
+            currLink.classList.add("active");
+          } else {
+            currLink.classList.remove("active");
+          }
+        }
+      }
+
+      window.document.addEventListener("scroll", onScroll);
+    </script>
+  </body>
+</html>
