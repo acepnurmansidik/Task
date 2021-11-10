@@ -22,13 +22,13 @@ module.exports = {
       const provs = await Provinsi.findOne({
         where: { id: newKab[0].Provinsi_Id },
       });
-      const Prov = provs.nama;
-      console.log(Prov);
+      newKab[0].prov = provs.nama;
+
+      console.log(newKab);
 
       res.render("kabupaten/detail", {
         title: "Kabupaten",
         newKab,
-        Prov,
       });
     } catch (err) {
       console.log(err);
